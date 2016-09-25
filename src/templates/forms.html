@@ -4,7 +4,7 @@
 
 <div class="scrollable">
  <div class="scrollable-content section">
-   <div ng-controller="testcrudController">
+   <div ng-controller="getTestController">
   <form role="form" ng-submit='login()'>
     <fieldset>
       <legend>Login</legend>
@@ -50,7 +50,11 @@
 <br />
 
 <p>
-{{ Get_Data.authors[0] }}
+{{ Get_Data.data.authors[0] }}
+</p>
+<hr>
+<p>
+{{ Get_Data }}
 </p>
 <!-- close controller -->
 </div>

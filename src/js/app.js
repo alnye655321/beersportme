@@ -3,7 +3,8 @@ var app = angular.module('Beersportme', [
   'mobile-angular-ui',
   'mobile-angular-ui.gestures',
   'Beersportme.controllers.Main',
-  'Beersportme.controllers.testcrud'
+  'Beersportme.services.getTest',
+  'Beersportme.controllers.getTest'
 ]);
 
 app.config(function($routeProvider) {
