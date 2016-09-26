@@ -4,5 +4,4 @@ angular.module('Beersportme.controllers.Main', [])
   $scope.swiped = function(direction) {
     alert('Swiped ' + direction);
   };
-
 });

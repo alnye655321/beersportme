@@ -23,6 +23,7 @@
     "gulp-rename": "^1.2.0"
   },
   "dependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "less": "^2.7.1"
   }
 }
