@@ -3,8 +3,7 @@ var app = angular.module('Beersportme', [
   'mobile-angular-ui',
   'mobile-angular-ui.gestures',
   'Beersportme.controllers.Main',
-  'Beersportme.services.getTest',
-  'Beersportme.controllers.getTest'
+  'Beersportme.controllers.Profile_Form'
 ]);
 
 app.config(function($routeProvider) {
@@ -12,6 +11,7 @@ app.config(function($routeProvider) {
   $routeProvider.when('/tabs', {templateUrl:'tabs.html',  reloadOnSearch: false});
   $routeProvider.when('/swipe', {templateUrl:'swipe.html',  reloadOnSearch: false});
   $routeProvider.when('/forms', {templateUrl:'forms.html',  reloadOnSearch: false});
+  $routeProvider.when('/profile', {templateUrl:'profile-form.html',  reloadOnSearch: false});
 });
 
 
