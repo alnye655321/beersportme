@@ -4,7 +4,7 @@
 
 <div class="scrollable">
  <div class="scrollable-content section">
-   <div ng-controller="getTestController">
+   <div ng-controller="TestController">
   <form role="form" ng-submit='login()'>
     <fieldset>
       <legend>Login</legend>
@@ -40,7 +40,9 @@
 
   </form>
   <pre>
-    {{ formData }}
+    <p ng-repeat="obj in Test_Data.data.authors">
+    {{obj.first_name}} {{obj.last_name}}
+    </p>
 </pre>
 
 <h3>Simple GET call</h3>
@@ -49,13 +51,6 @@
 <textarea class="logTextArea">{{simpleGetCallResult}}</textarea>
 <br />
 
-<p>
-{{ Get_Data.data.authors[0] }}
-</p>
-<hr>
-<p>
-{{ Get_Data }}
-</p>
 <!-- close controller -->
 </div>
  </div>
