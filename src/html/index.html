@@ -8,8 +8,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
     <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
-    <link rel="stylesheet" href="css/app.min.css" />
-    <link rel="stylesheet" href="css/responsive.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Heebo|Passion+One" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.min.css"/>
+    <link rel="stylesheet" href="css/responsive.min.css"/>
     <!-- inject:js -->
     <script src="js/app.min.js"></script>
     <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
@@ -19,37 +20,34 @@
     <!-- <script src="js/mobile-angular-ui.gestures.min.js"></script> -->
   </head>
   <body ng-app="Beersportme" ng-controller="MainController">
-
     <!-- Sidebars -->
-    <div ng-include="'sidebar.html'"
-            ui-track-as-search-param='true'
+    <div ng-include="'sidebar.html'" ui-track-as-search-param='true'
             class="sidebar sidebar-left"></div>
 
     <div class="app">
 
       <!-- Navbars -->
-
       <div class="navbar navbar-app navbar-absolute-top">
         <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
-          Mobile Angular UI
+          <span class="body-text"><i class="fa fa-dribbble" aria-hidden="true"></i> Beersport.me</span>
         </div>
         <div class="btn-group pull-left">
           <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
-            <i class="fa fa-bars"></i> Menu
+            <span class="body-text"><i class="fa fa-bars"></i> Menu</span>
           </div>
         </div>
         <div class="btn-group pull-right" ui-yield-to="navbarAction">
           <div ui-toggle="uiSidebarRight" class="btn">
-            <i class="fa fa-comment"></i> Chat
+            <span class="body-text"><i class="fa fa-comment"></i> CHAT</span>
           </div>
         </div>
       </div>
 
       <div class="navbar navbar-app navbar-absolute-bottom">
         <div class="btn-group justified">
-          <a href="http://mobileangularui.com/" class="btn btn-navbar"><i class="fa fa-home fa-navbar"></i> Docs</a>
-          <a href="https://github.com/mcasimir/mobile-angular-ui" class="btn btn-navbar"><i class="fa fa-github fa-navbar"></i> Sources</a>
-          <a href="https://github.com/mcasimir/mobile-angular-ui/issues" class="btn btn-navbar"><i class="fa fa-exclamation-circle fa-navbar"></i> Issues</a>
+          <a href="#" class="btn btn-navbar"><span class="body-text"><i class="fa fa-home fa-navbar"></i> HOME</span></a>
+          <a href="#" class="btn btn-navbar"><span class="body-text"><i class="fa fa-users" aria-hidden="true"></i> MY TEAMS</span></a>
+          <a href="#" class="btn btn-navbar"><span class="body-text"><i class="fa fa-sign-out" aria-hidden="true"></i> SIGN OUT</span></a>
         </div>
       </div>
 
