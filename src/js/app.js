@@ -12,6 +12,8 @@ app.config(function($routeProvider) {
   $routeProvider.when('/swipe', {templateUrl:'swipe.html',  reloadOnSearch: false});
   $routeProvider.when('/forms', {templateUrl:'forms.html',  reloadOnSearch: false});
   $routeProvider.when('/profile', {templateUrl:'profile-form.html',  reloadOnSearch: false});
+  $routeProvider.when('/view_all_events', {templateUrl:'view_all_events.html',  reloadOnSearch: false});
+
 });
 
 
