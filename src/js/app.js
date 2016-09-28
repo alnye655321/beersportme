@@ -1,17 +1,36 @@
 var app = angular.module('Beersportme', [
   'ngRoute',
+  'satellizer',
   'mobile-angular-ui',
   'mobile-angular-ui.gestures',
   'Beersportme.controllers.Main',
-  'Beersportme.controllers.Profile_Form'
+  'Beersportme.controllers.Home',
+  'Beersportme.services.getRoutesCommon',
+  'Beersportme.services.postRoutesCommon',
+  'Beersportme.services.putRoutesCommon',
+  'Beersportme.controllers.Profile_Form',
+  'Beersportme.controllers.Profile_Edit_Form',
+  'Beersportme.controllers.getAllTeams',
+  'Beersportme.controllers.getAllSports',
+  'Beersportme.controllers.getAllEvents',
+  'Beersportme.controllers.getMyEvents',
+  'Beersportme.controllers.getMyTeams'
 ]);
 
-app.config(function($routeProvider) {
-  $routeProvider.when('/', {templateUrl:'home.html',  reloadOnSearch: false});
+app.config(function($routeProvider, $authProvider) {
+    // *** satellizer settings *** //
+  $authProvider.github({ //change URL to heroku address
+   url: 'http://immense-mountain-80924.herokuapp.com/auth/github',
+   clientId: '885c082728340e4b3d3f',
+   redirectUri: 'http://immense-mountain-80924.herokuapp.com/auth/github'
+  });
+  $routeProvider.when('/', {templateUrl:'home.html',  reloadOnSearch: false, restricted: false});
+  $routeProvider.when('/members', {template:'<h1>Logged in</h1>',  reloadOnSearch: false, restricted: true});
   $routeProvider.when('/tabs', {templateUrl:'tabs.html',  reloadOnSearch: false});
   $routeProvider.when('/swipe', {templateUrl:'swipe.html',  reloadOnSearch: false});
   $routeProvider.when('/forms', {templateUrl:'forms.html',  reloadOnSearch: false});
-  $routeProvider.when('/profile', {templateUrl:'profile-form.html',  reloadOnSearch: false});
+  $routeProvider.when('/create_profile', {templateUrl:'create_profile.html',  reloadOnSearch: false});
+  $routeProvider.when('/edit_my_profile', {templateUrl:'profile-form-edit.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_events', {templateUrl:'view_all_events.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_sports', {templateUrl:'view_all_sports.html',  reloadOnSearch: false});
   $routeProvider.when('/view_my_teams', {templateUrl:'view_my_teams.html',  reloadOnSearch: false});
@@ -33,3 +52,12 @@ app.config(['$httpProvider', function($httpProvider) {
     }
 
 ]);
+
+// app.run(function ($rootScope, $location, $route, $auth) {
+//  $rootScope.$on('$routeChangeStart', function (event, next, current) {
+//    if (next.restricted && !$auth.isAuthenticated()) {
+//      $location.path('/');
+//      $route.reload();
+//    }
+//  });
+// });
