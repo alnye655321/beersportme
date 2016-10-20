@@ -1,11 +1,12 @@
 angular.module('Beersportme.controllers.Main', [])
 
-.controller('MainController', function($rootScope, $scope){
+.controller('MainController', function($rootScope, $scope, getFactory){
   $scope.swiped = function(direction) {
     alert('Swiped ' + direction);
   };
   //$scope.userID = 1;
   $rootScope.userID = 1;
+  $rootScope.ladderID = 1;
 
   $scope.chatUsers = [
     {name: 'Carlos  Flowers', online: true},
@@ -34,5 +35,26 @@ angular.module('Beersportme.controllers.Main', [])
     {name: 'Lee Norman', online: false},
     {name: 'Ebony Rice', online: false}
   ];
+
+//For Location Carosel Modal View-----------------------------------------------
+//Not working well outside main controller !!! refactor !!!
+  var myDataPromise = getFactory.getData('events');
+  myDataPromise.then(function(result) {
+
+   // this is only run after getData() resolves
+   $scope.Get_Events = result;
+  });
+
+  $scope.registerClickModal = function(eventID) {
+    //$scope.modalEventID = eventID;
+    var getEventData = $scope.Get_Events;
+    var array = getEventData.data.events.events;
+    var new_array = array.filter(function(val){
+      return val.locations_id == eventID;
+    });
+    $scope.eventList = new_array;
+  };
+//Close Location Carosel Modal View---------------------------------------------
+
 
 });

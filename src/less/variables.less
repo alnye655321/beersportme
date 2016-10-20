@@ -3,6 +3,7 @@ Background Body
 =====================*/
 .app-content {
   background-color: #ececec;
+  border-style: none;
 }
 
 /*=====================
@@ -10,6 +11,7 @@ View All Sports
 =====================*/
 .thumbnail {
   position: relative;
+  border-style: none;
 }
 
 .caption {
@@ -36,6 +38,7 @@ View All Teams
 =====================*/
 .thumbnail {
   position: relative;
+  border-style: none;
 }
 
 .caption {
@@ -82,8 +85,9 @@ Scroll Formatting
 =====================*/
 .scrollable {
   font-family: Arial;
-  background-color: #ececec;
+  background-color: white;
   background-repeat: no-repeat;
+  border-style: none;
 }
 
 /*=====================
@@ -239,4 +243,69 @@ Carousel
   -webkit-transition: -webkit-transform 500ms;
   -moz-transition: -moz-transform 500ms;
   transition: transform 500ms;
+}
+
+.ladder-table {
+  padding: 5px;
+}
+
+th {
+  padding: 5px;
+  text-align:center;
+}
+tr {
+  cursor: pointer;
+  padding: 5px;
+  text-align: center;
+}
+
+.ladder-table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+
+.ladder-table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+/*=====================
+Drag Dismiss - Required Items List
+=====================*/
+
+[drag-to-dismiss]{
+  transform: translate(0,0); /* NOTE: this is required to prevent mobile webkit issues */
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  -moz-transition: opacity 300ms, -moz-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  opacity: 1;
+}
+
+.requiredItems-container {
+  overflow-x: hidden;
+}
+
+.todo {
+  display: inline-block;
+  width: 100%;
+  background-color: #edeffc;
+}
+
+.dismiss {
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  -moz-transition: opacity 300ms, -moz-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  opacity: 0.5;
+}
+
+.dismitted {
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  -moz-transition: opacity 300ms, -moz-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  opacity: 0;
 }

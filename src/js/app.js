@@ -5,6 +5,9 @@ var app = angular.module('Beersportme', [
   'mobile-angular-ui.gestures',
   'Beersportme.controllers.Main',
   'Beersportme.controllers.Home',
+  'Beersportme.filters.availability_calc',
+  'Beersportme.directives.eventNameGen',
+  'Beersportme.directives.drag_dismiss',
   'Beersportme.services.getRoutesCommon',
   'Beersportme.services.postRoutesCommon',
   'Beersportme.services.putRoutesCommon',
@@ -13,22 +16,25 @@ var app = angular.module('Beersportme', [
   'Beersportme.controllers.getAllTeams',
   'Beersportme.controllers.getAllSports',
   'Beersportme.controllers.getAllEvents',
+  'Beersportme.controllers.getAllLadders',
   'Beersportme.controllers.getMyEvents',
   'Beersportme.controllers.getMyTeams',
   'Beersportme.controllers.getProfile',
+  'Beersportme.controllers.getLadder',
   'Beersportme.controllers.getAllLocations',
   'Beersportme.controllers.Add_Event',
   'Beersportme.controllers.carousel',
   'Beersportme.controllers.Add_Team',
-  'Beersportme.controllers.teamImagesArray'
+  'Beersportme.controllers.teamImagesArray',
+  'Beersportme.controllers.required_items'
 ]);
 
 app.config(function($routeProvider, $authProvider) {
     // *** satellizer settings *** //
   $authProvider.github({ //change URL to heroku address
-   url: 'http://immense-mountain-80924.herokuapp.com/auth/github',
+   url: 'http://localhost:3000/auth/github',
    clientId: '885c082728340e4b3d3f',
-   redirectUri: 'http://immense-mountain-80924.herokuapp.com/auth/github'
+   redirectUri: 'http://localhost:3000/auth/github'
   });
   $routeProvider.when('/', {templateUrl:'create_profile.html',  reloadOnSearch: false, restricted: false});
   $routeProvider.when('/home', {templateUrl:'home.html',  reloadOnSearch: false, restricted: false});
@@ -39,6 +45,8 @@ app.config(function($routeProvider, $authProvider) {
   // $routeProvider.when('/edit_my_profile', {templateUrl:'profile-form-edit.html',  reloadOnSearch: false});
   $routeProvider.when('/edit_my_profile', {templateUrl:'modal_edit_my_profile.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_events', {templateUrl:'view_all_events.html',  reloadOnSearch: false});
+  $routeProvider.when('/view_all_ladders', {templateUrl:'view_all_ladders.html',  reloadOnSearch: false});
+  $routeProvider.when('/view_ladder/1', {templateUrl:'view_ladder.html',  reloadOnSearch: false});
   $routeProvider.when('/view_my_events', {templateUrl:'view_my_events.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_sports', {templateUrl:'view_all_sports.html',  reloadOnSearch: false});
   $routeProvider.when('/view_my_teams', {templateUrl:'view_my_teams.html',  reloadOnSearch: false});
@@ -49,6 +57,7 @@ app.config(function($routeProvider, $authProvider) {
   $routeProvider.when('/add_event', {templateUrl:'add_event.html',  reloadOnSearch: false});
   $routeProvider.when('/add_team', {templateUrl:'add_team.html',  reloadOnSearch: false});
   $routeProvider.when('/carousel', {templateUrl: 'carousel.html', reloadOnSearch: false});
+  $routeProvider.when('/view_required_items', {templateUrl: 'view_required_items.html', reloadOnSearch: false});
 });
 
 

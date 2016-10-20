@@ -1,0 +1,27 @@
+<div class="modal" ui-if="modal_view_ladder" ui-shared-state="modal_view_ladder">
+  <div class="modal-backdrop in"></div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" ui-turn-off="modal_view_ladder">&times;</button>
+        <h4 class="modal-title">Ladder Info</h4>
+      </div>
+      <div class="modal-body">
+          <h2>{{type}}</h2>
+          <p>Select the winner</p>
+          <form>
+            <div class="radio">
+             <label><input ng-model="winnerID"type="radio" value="{{userID}}" name="winner">You</label>
+           </div>
+           <div class="radio">
+             <label><input ng-model="winnerID" type="radio" value="{{opponentID}}" name="winner">{{first}} {{last}}</label>
+           </div>
+           <button ng-click="updateLadder(winnerID)"type="submit">Submit</button>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button ui-turn-off="modal_view_ladder" class="btn btn-default">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
